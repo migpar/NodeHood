@@ -1,14 +1,7 @@
 package com.lunijami.nodehood;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.app.Activity;
 
-import android.os.Bundle;
+public class RegisterActivity extends Activity {
 
-public class RegisterActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-    }
 }
