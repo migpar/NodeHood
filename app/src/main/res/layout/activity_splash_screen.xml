@@ -8,7 +8,7 @@
     tools:context=".SplashScreenActivity">
 
     <View
-        android:background="@drawable/scrim"
+        android:background="@drawable/scrimsplash"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
