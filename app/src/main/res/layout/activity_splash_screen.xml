@@ -19,7 +19,7 @@
         android:adjustViewBounds="false"
         android:cropToPadding="false"
         android:scaleType="fitCenter"
-        android:src="@drawable/logo2" />
+        android:src="@drawable/logo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
