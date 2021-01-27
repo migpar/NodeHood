@@ -24,7 +24,7 @@
         android:layout_height="match_parent"/>
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/editEmailAddress"
         android:background="@color/white"
         android:layout_width="0dp"
         android:layout_height="40dp"
@@ -37,7 +37,7 @@
         tools:layout_editor_absoluteY="171dp" />
 
     <EditText
-        android:id="@+id/editTextNumberPassword"
+        android:id="@+id/editPassword"
         android:background="@color/white"
         android:layout_width="0dp"
         android:layout_height="40dp"
@@ -45,35 +45,69 @@
         android:inputType="textEmailAddress"
         app:layout_constraintLeft_toRightOf="@id/guideline"
         app:layout_constraintRight_toLeftOf="@id/guideline2"
-        app:layout_constraintTop_toBottomOf="@id/editTextTextEmailAddress"
+        app:layout_constraintTop_toBottomOf="@id/editEmailAddress"
         tools:layout_editor_absoluteX="168dp"
         tools:layout_editor_absoluteY="171dp" />
-
+<!--
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonRegister"
         android:layout_marginTop="40dp"
         android:layout_marginRight="20dp"
         android:layout_width="0dp"
+        style="@style/ButtonStraight"
         android:layout_height="40dp"
         android:text="Register"
         app:layout_constraintLeft_toRightOf="@id/guideline"
         app:layout_constraintRight_toLeftOf="@id/guideline3"
-        app:layout_constraintTop_toBottomOf="@id/editTextNumberPassword"
+        app:layout_constraintTop_toBottomOf="@id/editPassword"
         tools:layout_editor_absoluteX="151dp"
-        tools:layout_editor_absoluteY="297dp" />
+        tools:layout_editor_absoluteY="297dp" /> -->
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonRegister"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/ButtonStraight"
+        android:text="Register"
+        android:layout_marginTop="40dp"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toRightOf="@id/guideline"
+        app:layout_constraintRight_toLeftOf="@id/guideline3"
+        app:layout_constraintTop_toBottomOf="@id/editPassword"
+        app:layout_constraintHorizontal_bias="0.0"
+        >
+
+    </com.google.android.material.button.MaterialButton>
+<!--
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonLogin"
         android:layout_marginTop="40dp"
         android:layout_marginLeft="20dp"
+        style="@style/ButtonStraight"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:text="Login"
         app:layout_constraintLeft_toRightOf="@id/guideline3"
         app:layout_constraintRight_toLeftOf="@id/guideline2"
-        app:layout_constraintTop_toBottomOf="@id/editTextNumberPassword"
+        app:layout_constraintTop_toBottomOf="@id/editPassword"
         tools:layout_editor_absoluteX="151dp"
-        tools:layout_editor_absoluteY="297dp"  />
+        tools:layout_editor_absoluteY="297dp"  /> -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/ButtonStraight"
+        android:text="Login"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toRightOf="@id/guideline3"
+        app:layout_constraintRight_toLeftOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@id/editPassword"
+        app:layout_constraintHorizontal_bias="0.0"
+        >
+
+    </com.google.android.material.button.MaterialButton>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
