@@ -65,7 +65,7 @@
         tools:layout_editor_absoluteY="171dp" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttoncancel"
+        android:id="@+id/buttonCancel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginRight="20dp"
@@ -80,7 +80,7 @@
         />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonRegister"
+        android:id="@+id/buttonRegisterConfirm"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
