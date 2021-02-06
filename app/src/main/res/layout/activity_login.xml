@@ -133,4 +133,18 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.50" />
 
+    <TextView
+        android:id="@+id/textRedesLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/guideline"
+        app:layout_constraintRight_toLeftOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@id/buttonLogin"
+        android:clickable="true"
+        android:layout_marginTop="100dp"
+        android:textColor="@color/verdeC"
+        android:text="Redes Sociales"
+        tools:layout_editor_absoluteX="174dp"
+        tools:layout_editor_absoluteY="417dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
