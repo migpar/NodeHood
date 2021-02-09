@@ -115,4 +115,39 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.50" />
 
+    <ImageView
+        android:id="@+id/imageFacebook"
+        android:layout_width="64dp"
+        android:layout_height="63dp"
+        app:srcCompat="@drawable/facebook"
+        android:layout_marginTop="170dp"
+        app:layout_constraintStart_toEndOf="@id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/buttonRegisterConfirm"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="521dp" />
+
+    <ImageView
+        android:id="@+id/imageApple"
+        android:layout_width="130dp"
+        android:layout_height="112dp"
+        app:srcCompat="@drawable/apple"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintEnd_toStartOf="@id/imageGoogle"
+        app:layout_constraintTop_toBottomOf="@+id/buttonRegisterConfirm"
+        tools:layout_editor_absoluteX="136dp"
+        app:layout_constraintEnd_toEndOf="@id/imageGoogle"
+        tools:layout_editor_absoluteY="502dp" />
+
+    <ImageView
+        android:id="@+id/imageGoogle"
+        android:layout_width="106dp"
+        android:layout_height="104dp"
+        app:layout_constraintTop_toBottomOf="@+id/buttonRegisterConfirm"
+        app:layout_constraintEnd_toStartOf="@id/guideline2"
+        app:srcCompat="@drawable/google"
+        android:layout_marginTop="150dp"
+        tools:layout_editor_absoluteX="269dp"
+        tools:layout_editor_absoluteY="502dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
