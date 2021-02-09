@@ -12,7 +12,6 @@ import android.widget.TextView;
 public class LoginActivity extends AppCompatActivity {
     protected Button mLoginButton;
     protected Button mRegisterButton;
-    TextView redes = null;
     LoginActivity context = this;
 
 
@@ -23,7 +22,6 @@ public class LoginActivity extends AppCompatActivity {
 
         mLoginButton = (Button) findViewById(R.id.buttonLogin);
         mRegisterButton = (Button) findViewById(R.id.buttonRegister);
-        redes = findViewById(R.id.textRedesLogin);
 
         mRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,37 +47,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-
-
-        redes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showAlertDialogButtonClicked(context);
-            }
-        });
-
     }
 
-    public void showAlertDialogButtonClicked(LoginActivity view) {
-
-        // setup the alert builder
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-
-        //el dialogo estandar tiene título/icono pero podemos sustituirlo por un XML a medida
-//        builder.setTitle("Achtung!");
-//        builder.setMessage("Where do you go?");
-//        builder.setIcon(R.drawable.ic_action_name_dark);
-
-
-        // un XML a medida para el diálogo
-        builder.setView(getLayoutInflater().inflate(R.layout.redes_dialog, null));
-
-        // add the buttons
-
-
-        // create and show the alert dialog
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
 }
