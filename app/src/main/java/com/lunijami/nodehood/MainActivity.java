@@ -32,10 +32,10 @@ public class MainActivity extends AppCompatActivity {
         BottomAppBar bottomAppBar = findViewById(R.id.bottom_app_bar_menu);
 
         //click event en el  FAB
-        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.chat).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "FAB Clicked.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "CHAT Clicked.", Toast.LENGTH_SHORT).show();
             }
         });
 
