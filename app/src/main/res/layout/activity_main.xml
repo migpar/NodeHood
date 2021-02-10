@@ -45,6 +45,23 @@
 
 
         <!--        </com.google.android.material.chip.ChipGroup>-->
+<!--
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="270dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="65dp"
+        android:fontFamily="@font/pottaone"
+        android:text="NodeHood"
+        android:textAlignment="center"
+        android:textColor="@color/verdeA"
+        android:textSize="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />  -->
+
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/title"
@@ -60,8 +77,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_app_bar_menu"
