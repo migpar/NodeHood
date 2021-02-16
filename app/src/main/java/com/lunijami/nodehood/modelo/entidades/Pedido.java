@@ -3,12 +3,18 @@ package com.lunijami.nodehood.modelo.entidades;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
-public class MisPedidos {
+/**
+ * @author Miguel Parra
+ */
+public class Pedido {
 
+    private int id;
+    private int emisorID, receptorID;
     private String titulo, descripcion;
-    private Drawable foto;
+    private Drawable foto;//cambiar por uri cuando se implemente
 
-    public MisPedidos(String titulo, String descripcion, Drawable foto) {
+
+    public Pedido(String titulo, String descripcion, Drawable foto) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.foto = foto;

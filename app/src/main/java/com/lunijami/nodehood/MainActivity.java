@@ -2,7 +2,6 @@ package com.lunijami.nodehood;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,11 +11,9 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
-import com.lunijami.nodehood.modelo.entidades.MisPedidos;
+import com.lunijami.nodehood.modelo.entidades.Pedido;
 
 import java.util.ArrayList;
-
-import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView mis_pedidos;
@@ -29,9 +26,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         LinearLayoutManager layout_mispedidos = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         mis_pedidos = findViewById(R.id.recicler_mis_pedidos);
-        ArrayList<MisPedidos> listaPedidos = new ArrayList<MisPedidos>();
+        ArrayList<Pedido> listaPedidos = new ArrayList<Pedido>();
         for(int i=0; i <= 10; i++){
-            MisPedidos p = new MisPedidos("titulo "+i, "descripcion " + i, getDrawable(R.drawable.apple));
+            Pedido p = new Pedido("titulo "+i, "descripcion " + i, getDrawable(R.drawable.apple));
             listaPedidos.add(p);
         }
         RecyclerView.LayoutManager gestorPedidos = new LinearLayoutManager(this);
@@ -42,9 +39,9 @@ public class MainActivity extends AppCompatActivity {
 //-------------------------- cambiamos de recycler ---------------------------------------
         LinearLayoutManager layout_misRealizados = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         mis_realizados = findViewById(R.id.recicler_mis_realizados);
-        ArrayList<MisPedidos> listaRealizados = new ArrayList<MisPedidos>();
+        ArrayList<Pedido> listaRealizados = new ArrayList<Pedido>();
         for(int i=0; i <= 10; i++){
-            MisPedidos p = new MisPedidos("titulo "+i, "descripcion " + i, getDrawable(R.drawable.apple));
+            Pedido p = new Pedido("titulo "+i, "descripcion " + i, getDrawable(R.drawable.apple));
             listaRealizados.add(p);
         }
         RecyclerView.LayoutManager gestorRealizados = new LinearLayoutManager(this);

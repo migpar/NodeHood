@@ -10,15 +10,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.lunijami.nodehood.modelo.entidades.MisPedidos;
+import com.lunijami.nodehood.modelo.entidades.Pedido;
 
 import java.util.ArrayList;
 
+/**
+ * @author Miguel Parra
+ */
 public class MiAdaptador extends RecyclerView.Adapter<MiAdaptador.MiContenedorDeVistas> {
 
-    private ArrayList<MisPedidos> lista_pedidos = new ArrayList<>();
+    private ArrayList<Pedido> lista_pedidos = new ArrayList<>();
 
-    public MiAdaptador(ArrayList<MisPedidos> lista_contactos) {
+    public MiAdaptador(ArrayList<Pedido> lista_contactos) {
         this.lista_pedidos = lista_contactos;
     }
 
@@ -36,7 +39,7 @@ public class MiAdaptador extends RecyclerView.Adapter<MiAdaptador.MiContenedorDe
 
     @Override
     public void onBindViewHolder(@NonNull MiContenedorDeVistas holder, int position) {
-        MisPedidos c = lista_pedidos.get(position);
+        Pedido c = lista_pedidos.get(position);
         holder.tv_titulo.setText(c.getTitulo());
         holder.tv_descripcion.setText(c.getDescripcion());
         holder.imagen.setImageDrawable(c.getFoto());
