@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
     protected Button mLoginButton;
-    protected Button mRegisterButton;
+    protected TextView mRegisterButton;
     LoginActivity context = this;
 
 
@@ -21,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         mLoginButton = (Button) findViewById(R.id.buttonLogin);
-        mRegisterButton = (Button) findViewById(R.id.buttonRegister);
+        mRegisterButton = (TextView) findViewById(R.id.buttonRegister);
 
         mRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    protected Button mCancelButton;
+    protected TextView mCancelButton;
     RegisterActivity context = this;
 
     @Override
@@ -19,7 +19,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        mCancelButton = (Button) findViewById(R.id.buttonCancel);
+        mCancelButton = (TextView) findViewById(R.id.buttonCancel);
 
         mCancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
