@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">NodeHood</string>
     <string name="back"><![CDATA[<]]></string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="outlined">Outlined mode</string>
+    <string name="text">Text</string>
+    <string name="mandatory">This wrong</string>
 </resources>

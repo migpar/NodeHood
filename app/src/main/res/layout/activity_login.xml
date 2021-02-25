@@ -99,36 +99,71 @@
         app:layout_constraintTop_toBottomOf="@+id/Login" />
 
 
-    <EditText
-        android:id="@+id/editEmailAddress"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="180dp"
-        android:background="@drawable/bordes_redondos"
-        android:hint="   Email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toRightOf="@id/guideline"
-        app:layout_constraintRight_toLeftOf="@id/guideline2"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/editPassword"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/bordes_redondos"
-        android:hint="   Password"
-        android:inputType="textEmailAddress"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toRightOf="@id/guideline"
-        app:layout_constraintRight_toLeftOf="@id/guideline2"
-        app:layout_constraintTop_toBottomOf="@id/editEmailAddress" />
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="@dimen/elevation_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UnusedAttribute"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_email"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="140dp"
+            android:hint="@string/email"
+            style="@style/AppTheme.TextInputLayout"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextEmail"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bordes_redondos"
+                android:inputType="textEmailAddress" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_pass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/form_margin_top"
+            android:hint="@string/password"
+            app:passwordToggleEnabled="true"
+            style="@style/AppTheme.EditTextError"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/text_input_layout_email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bordes_redondos"
+                android:inputType="textPassword" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
     <TextView
         android:id="@+id/textView5"
         android:layout_width="243dp"
         android:layout_height="39dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="384dp"
         android:clickable="true"
         android:fontFamily="@font/poppins"
         android:text="Did you forget the password?"
@@ -137,8 +172,7 @@
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPassword" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonLogin"
@@ -209,4 +243,5 @@
 
 
 ]]>
+</androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
