@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "447312074595",
+    "project_id": "nodehood-41f6e",
+    "storage_bucket": "nodehood-41f6e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447312074595:android:02859e7f620939e528e556",
+        "android_client_info": {
+          "package_name": "com.lunijami.nodehood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447312074595-aruq060go2u7toroo9s7t0t6051dqj97.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lunijami.nodehood",
+            "certificate_hash": "35b3ec6fc3d830fdace303e79215e97f81db7390"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCb7ofwz3XBz7GlOrUDxT2f2VZGM7FK2kg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

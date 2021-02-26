@@ -7,24 +7,19 @@ import java.util.List;
  */
 public class Usuario {
 
-    private int id;
-    private String nombre, email, telefono, direccion;
+
+    private String nombre, email, telefono, contraseña;
     List<Integer> listaPedidosID; //Le introducimos solo el id de los pedidos
 
-    public Usuario(String nombre, String email, String telefono, String direccion, List<Integer> listaPedidosID) {
+    public Usuario(String nombre, String email, String contraseña) {
         this.nombre = nombre;
         this.email = email;
-        this.telefono = telefono;
-        this.direccion = direccion;
-        this.listaPedidosID = listaPedidosID;
+        this.contraseña = contraseña;
+        this.telefono="no number";
     }
 
     public Usuario() {
         super();
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getNombre() {
@@ -51,14 +46,6 @@ public class Usuario {
         this.telefono = telefono;
     }
 
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
     public List<Integer> getListaPedidosID() {
         return listaPedidosID;
     }
@@ -67,7 +54,26 @@ public class Usuario {
         this.listaPedidosID = listaPedidosID;
     }
 
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+
     public void añadirPedido(int pedidoID) {
         listaPedidosID.add(pedidoID);
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "nombre='" + nombre + '\'' +
+                ", email='" + email + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", contraseña='" + contraseña + '\'' +
+                ", listaPedidosID=" + listaPedidosID +
+                '}';
     }
 }

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "588448126952",
+    "firebase_url": "https://nodehood-d83fd-default-rtdb.firebaseio.com",
+    "project_id": "nodehood-d83fd",
+    "storage_bucket": "nodehood-d83fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588448126952:android:b26e4bcf9037fc1d61765d",
+        "android_client_info": {
+          "package_name": "com.lunijami.nodehood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "588448126952-0js0k3s5obe6unij716ceh7tuuo2q87o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lunijami.nodehood",
+            "certificate_hash": "35b3ec6fc3d830fdace303e79215e97f81db7390"
+          }
+        },
+        {
+          "client_id": "588448126952-r9n41dh5bnfts3dmjpe5cnh3l2idlj6c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyKGOje6VabuFcaU8jMBuuj0b0EqBKHQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "588448126952-r9n41dh5bnfts3dmjpe5cnh3l2idlj6c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
