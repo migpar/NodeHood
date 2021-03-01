@@ -35,7 +35,7 @@ import com.lunijami.nodehood.modelo.entidades.Usuario;
  * Ingreso en la APP via google sacado del codigo de comunify
  */
 public class LoginActivity extends AppCompatActivity implements
-        View.OnClickListener {
+        View.OnClickListener, AccesoDatos.Actualizacion {
     protected Button mLoginButton;
     protected Button mRegisterButton;
     private FirebaseAuth mAuth;
@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity implements
     private TextView mStatusTextView;
     private EditText email;
     private EditText passwd;
+    private AccesoDatos.Actualizacion a = this;
 
 
     @Override
@@ -180,9 +181,8 @@ public class LoginActivity extends AppCompatActivity implements
 
     }
 
-    public boolean comprobarUsuario(){
-        Usuario user = AccesoDatos.getUsuario(email.getText().toString().replace('.', '>'));
-        return user.getContraseña().equals(passwd.getText().toString());
+    public void comprobarUsuario(){
+        Usuario user = AccesoDatos.getUsuario(email.getText().toString().replace('.', '>'), a);
     }
 
 
@@ -194,17 +194,7 @@ public class LoginActivity extends AppCompatActivity implements
                 signIn();
                 break;
             case R.id.buttonLogin:
-                if(comprobarUsuario()){
-                    Intent intentLogin = new Intent(LoginActivity
-                            .this, MainActivity.class);
-                    intentLogin.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    intentLogin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intentLogin);
-                } else{
-                    Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
-                }
-
-
+                    comprobarUsuario();
                 break;
             case R.id.buttonRegister:
                 Intent intentRegister = new Intent(LoginActivity
@@ -214,5 +204,19 @@ public class LoginActivity extends AppCompatActivity implements
                 startActivity(intentRegister);
                 break;
         }
+    }
+
+    @Override
+    public void recuperarDatos(Usuario user) {
+        if(user.getContraseña().equals(passwd.getText().toString())){
+            Intent intentLogin = new Intent(LoginActivity
+                    .this, MainActivity.class);
+            intentLogin.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intentLogin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intentLogin);
+        } else{
+            Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

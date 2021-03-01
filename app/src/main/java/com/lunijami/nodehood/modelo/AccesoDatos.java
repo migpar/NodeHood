@@ -11,6 +11,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.lunijami.nodehood.LoginActivity;
 import com.lunijami.nodehood.modelo.entidades.Usuario;
 
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class AccesoDatos {
         myRef.child(user.getEmail().replace('.', '>')).setValue(user);
     }
 
-    public static Usuario getUsuario(String email) {
+    public static Usuario getUsuario(String email, Actualizacion a ) {
         final Usuario[] user = new Usuario[1];
         Log.d("Bajada", email);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -34,6 +35,7 @@ public class AccesoDatos {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
                 user[0] = dataSnapshot.getValue(Usuario.class);
+                a.recuperarDatos(user[0]);
             }
 
             @Override
@@ -51,6 +53,9 @@ public class AccesoDatos {
         return user[0];
     }
 
+    public interface Actualizacion{
+        public void recuperarDatos(Usuario user);
+    }
 
 }
 
