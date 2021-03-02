@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,20 +20,23 @@ public class ChatsActivity extends AppCompatActivity {
     RecyclerView recycler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
-        recycler = (RecyclerView) findViewById(R.id.recycler_id);
+        setContentView(R.layout.activity_chats);
+
+        LinearLayoutManager layout_mischats = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        recycler = findViewById(R.id.recicler_mis_chats);
         recycler.setLayoutManager(new LinearLayoutManager(this));
         listDatos = new ArrayList<String>();
         for (int i = 0 ; i<50;i++){
             listDatos.add("Dato: "+i+" ");
         }
+        RecyclerView.LayoutManager gestorChats = new LinearLayoutManager(this);
+        MiAdaptadorChats adaptadorChats = new MiAdaptadorChats(listDatos);
+        recycler.setLayoutManager(gestorChats);
+        recycler.setAdapter(adaptadorChats);
+        recycler.setLayoutManager(layout_mischats);
 
-        MiAdaptadorChats adapter = new MiAdaptadorChats(listDatos);
 
-
-        setContentView(R.layout.activity_chats);
         BottomAppBar bottomAppBar = findViewById(R.id.bottom_app_bar_menu);
 
         //click event en el  FAB
@@ -68,6 +72,9 @@ public class ChatsActivity extends AppCompatActivity {
                         break;
                     case R.id.bottom_app_bar_menu_share:
                         Toast.makeText(ChatsActivity.this, "Share clicked.", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.chat:
+                        Toast.makeText(ChatsActivity.this, "YOU ARE ALREADY HERE", Toast.LENGTH_SHORT).show();
                         break;
                 }
                 return false;

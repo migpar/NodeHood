@@ -17,11 +17,11 @@ import java.util.ArrayList;
 /**
  * @author Miguel Parra
  */
-public class MiAdaptador extends RecyclerView.Adapter<MiAdaptador.MiContenedorDeVistas> {
+public class MiAdaptadorPedidos extends RecyclerView.Adapter<MiAdaptadorPedidos.MiContenedorDeVistas> {
 
     private ArrayList<Pedido> lista_pedidos = new ArrayList<>();
 
-    public MiAdaptador(ArrayList<Pedido> lista_contactos) {
+    public MiAdaptadorPedidos(ArrayList<Pedido> lista_contactos) {
         this.lista_pedidos = lista_contactos;
     }
 

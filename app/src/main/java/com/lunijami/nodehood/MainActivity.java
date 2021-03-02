@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             listaPedidos.add(p);
         }
         RecyclerView.LayoutManager gestorPedidos = new LinearLayoutManager(this);
-        MiAdaptador adaptadorPedidos = new MiAdaptador(listaPedidos);
+        MiAdaptadorPedidos adaptadorPedidos = new MiAdaptadorPedidos(listaPedidos);
         mis_pedidos.setLayoutManager(gestorPedidos);
         mis_pedidos.setAdapter(adaptadorPedidos);
         mis_pedidos.setLayoutManager(layout_mispedidos);
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             listaRealizados.add(p);
         }
         RecyclerView.LayoutManager gestorRealizados = new LinearLayoutManager(this);
-        MiAdaptador adaptadorrealizados = new MiAdaptador(listaRealizados);
+        MiAdaptadorPedidos adaptadorrealizados = new MiAdaptadorPedidos(listaRealizados);
         mis_realizados.setLayoutManager(gestorRealizados);
         mis_realizados.setAdapter(adaptadorrealizados);
         mis_realizados.setLayoutManager(layout_misRealizados);
@@ -102,6 +102,13 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.bottom_app_bar_menu_share:
                         Toast.makeText(MainActivity.this, "Share clicked.", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.chat:
+                        Intent intentRegister = new Intent(MainActivity
+                                .this, ChatsActivity.class);
+                        intentRegister.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intentRegister.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intentRegister);
                         break;
                 }
                 return false;
