@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">NodeHood</string>
 
-
     <!--Google  en la carpeta values, archivo de string-->
 
     <string name="title_text">Google Sign-In\nQuickstart</string>
@@ -61,5 +60,17 @@
     <!---->
 
     <string name="sign">This is an <u>underline</u>.</string>
-
+    <string name="back"><![CDATA[<]]></string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="outlined">Outlined mode</string>
+    <string name="text">Text</string>
+    <string name="mandatory">This wrong</string>
+    <string name="do_you_need_an_account">¿Do you need an account?</string>
+    <string name="register">Register</string>
+    <string name="did_you_forget_the_password">Did you forget the password?</string>
+    <string name="o">o</string>
+    <string name="nodehood">NodeHood</string>
+    <string name="login">Login</string>
+    <string name="imagen">imagen</string>
 </resources>

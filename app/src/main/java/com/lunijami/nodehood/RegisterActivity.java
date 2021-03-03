@@ -22,19 +22,19 @@ import java.util.ArrayList;
 public class RegisterActivity extends AppCompatActivity implements
         View.OnClickListener {
 
-    private Button mCancelButton;
+    private TextView mCancelButton;
     private Button mRegistroButton;
     private EditText nombre;
     private EditText email;
     private EditText passwd;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
-        mCancelButton = (Button) findViewById(R.id.buttonCancel);
+        mCancelButton = findViewById(R.id.buttonCancel);
         mRegistroButton = findViewById(R.id.buttonRegisterConfirm);
         nombre = findViewById(R.id.editRegisterPersonName);
         email = findViewById(R.id.editRegisterEmailAddress);
@@ -44,6 +44,7 @@ public class RegisterActivity extends AppCompatActivity implements
         mCancelButton.setOnClickListener(this);
 
     }
+
 
     public void volverLogin() {
         Intent intent = new Intent(RegisterActivity

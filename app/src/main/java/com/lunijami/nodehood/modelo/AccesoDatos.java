@@ -3,6 +3,7 @@ package com.lunijami.nodehood.modelo;
 import android.os.Build;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
 import com.google.firebase.database.ChildEventListener;
@@ -10,12 +11,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.lunijami.nodehood.LoginActivity;
 import com.lunijami.nodehood.modelo.entidades.Usuario;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class AccesoDatos {
 
@@ -33,22 +29,22 @@ public class AccesoDatos {
         DatabaseReference myRef = database.getReference("Usuarios");
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String prevChildKey) {
                 user[0] = dataSnapshot.getValue(Usuario.class);
                 a.recuperarDatos(user[0]);
             }
 
             @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {}
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, String prevChildKey) {}
 
             @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {}
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {}
 
             @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String prevChildKey) {}
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, String prevChildKey) {}
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {}
+            public void onCancelled(@NonNull DatabaseError databaseError) {}
         });
         return user[0];
     }

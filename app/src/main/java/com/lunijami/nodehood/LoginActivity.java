@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +24,7 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,15 +39,16 @@ import com.lunijami.nodehood.modelo.entidades.Usuario;
 public class LoginActivity extends AppCompatActivity implements
         View.OnClickListener, AccesoDatos.Actualizacion {
     protected Button mLoginButton;
-    protected Button mRegisterButton;
+    protected TextView mRegisterButton;
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
     private final String TAG = "SignInActivity";
     private final int RC_SIGN_IN = 9002;
     private TextView mStatusTextView;
     private EditText email;
-    private EditText passwd;
-    private AccesoDatos.Actualizacion a = this;
+    private TextInputLayout passwd;
+    private final AccesoDatos.Actualizacion a = this;
+
 
 
     @Override
@@ -54,11 +57,11 @@ public class LoginActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_login);
 
         mLoginButton = (Button) findViewById(R.id.buttonLogin);
-        mRegisterButton = (Button) findViewById(R.id.buttonRegister);
+        mRegisterButton = findViewById(R.id.buttonRegister);
         mRegisterButton.setOnClickListener(this);
         mLoginButton.setOnClickListener(this);
-        email = findViewById(R.id.editEmailAddress);
-        passwd = findViewById(R.id.editPassword);
+        email = findViewById(R.id.editTextEmail);
+        passwd = findViewById(R.id.text_input_layout_pass);
 
         // en el oncreate
         // Initialize Firebase Auth
@@ -78,7 +81,7 @@ public class LoginActivity extends AppCompatActivity implements
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         // Button listeners
         findViewById(R.id.sign_in_button).setOnClickListener(this);
-        findViewById(R.id.disconnect_button).setOnClickListener(this);
+        //findViewById(R.id.disconnect_button).setOnClickListener(this);
 
 
         //opciones del boton de Google
@@ -163,7 +166,7 @@ public class LoginActivity extends AppCompatActivity implements
             mStatusTextView.setText(getString(R.string.signed_in_fmt, account.getDisplayName()));
             ((TextView) findViewById(R.id.status)).setText(R.string.signed_in);
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
-            findViewById(R.id.disconnect_button).setVisibility(View.VISIBLE);
+            //findViewById(R.id.disconnect_button).setVisibility(View.VISIBLE);
 
             Intent intent = new Intent(LoginActivity
                     .this, MainActivity.class);
@@ -175,7 +178,7 @@ public class LoginActivity extends AppCompatActivity implements
             mStatusTextView.setText(R.string.signed_out);
             Log.d("pruebas", "no logea");
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
-            findViewById(R.id.disconnect_button).setVisibility(View.GONE);
+            //findViewById(R.id.disconnect_button).setVisibility(View.GONE);
             ((TextView) findViewById(R.id.status)).setText(R.string.signed_out);
         }
 
@@ -186,6 +189,7 @@ public class LoginActivity extends AppCompatActivity implements
     }
 
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
 
@@ -208,7 +212,8 @@ public class LoginActivity extends AppCompatActivity implements
 
     @Override
     public void recuperarDatos(Usuario user) {
-        if(user.getContraseña().equals(passwd.getText().toString())){
+        String pwd = passwd.getEditText().getText().toString();
+        if(user.getContraseña().equals(pwd)){
             Intent intentLogin = new Intent(LoginActivity
                     .this, MainActivity.class);
             intentLogin.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
