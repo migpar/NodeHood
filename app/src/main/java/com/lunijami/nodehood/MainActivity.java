@@ -104,11 +104,11 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Share clicked.", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.chat:
-                        Intent intentRegister = new Intent(MainActivity
+                        Intent intentChat = new Intent(MainActivity
                                 .this, ChatsActivity.class);
-                        intentRegister.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        intentRegister.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(intentRegister);
+                        intentChat.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intentChat.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intentChat);
                         break;
                 }
                 return false;

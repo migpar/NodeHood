@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.lunijami.nodehood.modelo.AccesoDatos;
+import com.lunijami.nodehood.modelo.Ecriptador;
 import com.lunijami.nodehood.modelo.entidades.Pedido;
 import com.lunijami.nodehood.modelo.entidades.Usuario;
 
@@ -54,11 +55,12 @@ public class RegisterActivity extends AppCompatActivity implements
         startActivity(intent);
     }
 
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void registrarUsuario() {
         String nom = nombre.getText().toString();
         String eml = email.getText().toString();
-        String passw = passwd.getText().toString();
+        String passw = Ecriptador.hasearPwd(passwd.getText().toString());
         Usuario user = new Usuario(nom, eml, passw);
         AccesoDatos.registrarUsuario(user);
     }

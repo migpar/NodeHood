@@ -6,11 +6,11 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.lunijami.nodehood.modelo.entidades.Usuario;
 
 public class AccesoDatos {
@@ -22,34 +22,28 @@ public class AccesoDatos {
         myRef.child(user.getEmail().replace('.', '>')).setValue(user);
     }
 
-    public static Usuario getUsuario(String email, Actualizacion a ) {
+    public static void getUsuario(String email, Actualizacion a) {
         final Usuario[] user = new Usuario[1];
         Log.d("Bajada", email);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Usuarios");
-        myRef.addChildEventListener(new ChildEventListener() {
+        DatabaseReference myRef = database.getReference("Usuarios/"+email);
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String prevChildKey) {
-                user[0] = dataSnapshot.getValue(Usuario.class);
-                a.recuperarDatos(user[0]);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Usuario user = dataSnapshot.getValue(Usuario.class);
+                System.out.println(user);
+                a.recuperarDatos(user);
             }
 
             @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, String prevChildKey) {}
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {}
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, String prevChildKey) {}
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {}
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
         });
-        return user[0];
+
     }
 
-    public interface Actualizacion{
+    public interface Actualizacion {
         public void recuperarDatos(Usuario user);
     }
 

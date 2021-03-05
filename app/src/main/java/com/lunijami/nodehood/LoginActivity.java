@@ -2,11 +2,13 @@ package com.lunijami.nodehood;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,7 +33,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.lunijami.nodehood.modelo.AccesoDatos;
+import com.lunijami.nodehood.modelo.Ecriptador;
 import com.lunijami.nodehood.modelo.entidades.Usuario;
+
+import java.util.Objects;
 
 /**
  * Ingreso en la APP via google sacado del codigo de comunify
@@ -185,7 +190,7 @@ public class LoginActivity extends AppCompatActivity implements
     }
 
     public void comprobarUsuario(){
-        Usuario user = AccesoDatos.getUsuario(email.getText().toString().replace('.', '>'), a);
+        AccesoDatos.getUsuario(email.getText().toString().replace('.', '>'), a);
     }
 
 
@@ -210,17 +215,19 @@ public class LoginActivity extends AppCompatActivity implements
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void recuperarDatos(Usuario user) {
-        String pwd = passwd.getEditText().getText().toString();
-        if(user.getContraseña().equals(pwd)){
+        String pwd = Ecriptador.hasearPwd(Objects.requireNonNull(passwd.getEditText()).getText().toString());
+
+        if(user.getContraseña().equals(pwd) && user.getEmail().equals(email.getText().toString())) {
             Intent intentLogin = new Intent(LoginActivity
                     .this, MainActivity.class);
             intentLogin.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intentLogin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intentLogin);
         } else{
-            Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrectos " + user.getEmail(), Toast.LENGTH_SHORT).show();
         }
 
     }
