@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -25,11 +26,11 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        LinearLayoutManager layout_mispedidos = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager layout_mispedidos = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mis_pedidos = findViewById(R.id.recicler_mis_pedidos);
         ArrayList<Pedido> listaPedidos = new ArrayList<Pedido>();
         for(int i=0; i <= 10; i++){
-            Pedido p = new Pedido("titulo "+i, "descripcion " + i, getDrawable(R.drawable.apple));
+            @SuppressLint("UseCompatLoadingForDrawables") Pedido p = new Pedido("titulo "+i, "descripcion " + i, getDrawable(R.drawable.apple));
             listaPedidos.add(p);
         }
         RecyclerView.LayoutManager gestorPedidos = new LinearLayoutManager(this);
@@ -37,19 +38,6 @@ public class MainActivity extends AppCompatActivity {
         mis_pedidos.setLayoutManager(gestorPedidos);
         mis_pedidos.setAdapter(adaptadorPedidos);
         mis_pedidos.setLayoutManager(layout_mispedidos);
-//-------------------------- cambiamos de recycler ---------------------------------------
-        LinearLayoutManager layout_misRealizados = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        mis_realizados = findViewById(R.id.recicler_mis_realizados);
-        ArrayList<Pedido> listaRealizados = new ArrayList<Pedido>();
-        for(int i=0; i <= 10; i++){
-            Pedido p = new Pedido("titulo "+i, "descripcion " + i, getDrawable(R.drawable.apple));
-            listaRealizados.add(p);
-        }
-        RecyclerView.LayoutManager gestorRealizados = new LinearLayoutManager(this);
-        MiAdaptadorPedidos adaptadorrealizados = new MiAdaptadorPedidos(listaRealizados);
-        mis_realizados.setLayoutManager(gestorRealizados);
-        mis_realizados.setAdapter(adaptadorrealizados);
-        mis_realizados.setLayoutManager(layout_misRealizados);
 
 //        this.getSupportActionBar().setDisplayShowCustomEnabled(true);
 //
