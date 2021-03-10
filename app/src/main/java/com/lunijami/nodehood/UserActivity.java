@@ -7,16 +7,28 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.google.android.material.bottomappbar.BottomAppBar;
 
 public class UserActivity extends AppCompatActivity {
+    protected ImageView perfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
+
+        //Usuario Imagen
+        perfil = (ImageView) findViewById(R.id.imageUsuario);
+
+        Glide.with(this)
+                .load(R.drawable.luis).centerCrop()
+                .transition(DrawableTransitionOptions.withCrossFade(500))
+                .circleCrop().into(perfil);
 
         // cast al xml
         BottomAppBar bottomAppBar = findViewById(R.id.bottom_app_bar_menu);
