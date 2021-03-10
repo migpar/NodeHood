@@ -3,6 +3,7 @@ package com.lunijami.nodehood;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,13 +46,20 @@ public class UserActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.bottom_app_bar_menu_profile:
-                        Toast.makeText(UserActivity.this, "Like clicked.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UserActivity.this, "you are Already here", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.bottom_app_bar_menu_search:
                         Toast.makeText(UserActivity.this, "Search clicked.", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.bottom_app_bar_menu_share:
                         Toast.makeText(UserActivity.this, "Share clicked.", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.chat:
+                        Intent intentChat = new Intent(UserActivity
+                                .this, ChatsActivity.class);
+                        intentChat.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intentChat.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intentChat);
                         break;
                 }
                 return false;

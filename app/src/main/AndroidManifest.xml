@@ -16,6 +16,8 @@
             android:theme="@style/Theme.NodeHood.NoBar"/>
         <activity android:name=".ChatsActivity"
             android:theme="@style/Theme.NodeHood.NoBar"/>
+        <activity android:name=".UserActivity"
+            android:theme="@style/Theme.NodeHood.NoBar"/>
         <activity
             android:name=".SplashScreenActivity"
             android:theme="@style/Theme.NodeHood.NoBar">

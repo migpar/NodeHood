@@ -83,7 +83,11 @@ public class MainActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.bottom_app_bar_menu_profile:
-                        Toast.makeText(MainActivity.this, "Like clicked.", Toast.LENGTH_SHORT).show();
+                        Intent intentuser = new Intent(MainActivity
+                                .this, UserActivity.class);
+                        intentuser.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intentuser.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intentuser);
                         break;
                     case R.id.bottom_app_bar_menu_search:
                         Toast.makeText(MainActivity.this, "Search clicked.", Toast.LENGTH_SHORT).show();

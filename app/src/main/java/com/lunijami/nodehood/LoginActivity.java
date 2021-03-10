@@ -227,7 +227,7 @@ public class LoginActivity extends AppCompatActivity implements
             intentLogin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intentLogin);
         } else{
-            Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrectos "sdtrth, Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrectos ", Toast.LENGTH_SHORT).show();
         }
 
     }
