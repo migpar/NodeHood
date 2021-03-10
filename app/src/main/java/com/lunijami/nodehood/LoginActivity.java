@@ -220,14 +220,14 @@ public class LoginActivity extends AppCompatActivity implements
     public void recuperarDatos(Usuario user) {
         String pwd = Ecriptador.hasearPwd(Objects.requireNonNull(passwd.getEditText()).getText().toString());
 
-        if(user.getContraseña().equals(pwd) && user.getEmail().equals(email.getText().toString())) {
+        if(user != null && user.getContraseña().equals(pwd) && user.getEmail().equals(email.getText().toString())) {
             Intent intentLogin = new Intent(LoginActivity
                     .this, MainActivity.class);
             intentLogin.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intentLogin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intentLogin);
         } else{
-            Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrectos " + user.getEmail(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrectos "sdtrth, Toast.LENGTH_SHORT).show();
         }
 
     }

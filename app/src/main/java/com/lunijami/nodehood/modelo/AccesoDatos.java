@@ -23,16 +23,21 @@ public class AccesoDatos {
     }
 
     public static void getUsuario(String email, Actualizacion a) {
-        final Usuario[] user = new Usuario[1];
+        Usuario user = null;
         Log.d("Bajada", email);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Usuarios/"+email);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Usuario user = dataSnapshot.getValue(Usuario.class);
-                System.out.println(user);
-                a.recuperarDatos(user);
+                try{
+                    Usuario user = dataSnapshot.getValue(Usuario.class);
+                    System.out.println(user);
+                    a.recuperarDatos(user);
+                } catch (Exception e ){
+                    a.recuperarDatos(user);
+                }
+
             }
 
             @Override
