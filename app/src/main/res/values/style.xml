@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <style name="AppTheme.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <!-- línea inferior con texto-->
         <item name="boxStrokeColor">@color/verdeA</item>
@@ -15,4 +15,5 @@
         <item name="errorTextColor">@color/rojo</item>
         <item name="android:textColorHint">@color/black</item>
     </style>
+
 </resources>
