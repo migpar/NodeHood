@@ -25,7 +25,7 @@
         style="@style/ButtonStraight"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
         android:text="Change Email"
         app:layout_constraintTop_toBottomOf="@id/button"
         app:layout_constraintRight_toLeftOf="@id/guideline2"
@@ -37,7 +37,7 @@
         style="@style/ButtonStraight"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
         android:text="Change Password"
         app:layout_constraintTop_toBottomOf="@id/button2"
         app:layout_constraintRight_toLeftOf="@id/guideline2"
@@ -48,9 +48,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/ButtonStraight"
-        android:background=""
         android:layout_marginTop="40dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
         android:text="Logout"
         app:layout_constraintTop_toBottomOf="@id/textView"
         app:layout_constraintRight_toLeftOf="@id/imageView4"
@@ -64,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@id/button3"
         app:layout_constraintRight_toLeftOf="@id/guideline2"
         app:layout_constraintLeft_toRightOf="@id/guideline1"
-       />
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -87,7 +86,7 @@
         app:layout_constraintLeft_toRightOf="@id/guideline1"
         android:layout_marginTop="50dp"
         android:textAlignment="center"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:fontFamily="@font/pottaone"
         android:textColor="@color/verdeA"/>
 
@@ -115,7 +114,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/chat"
-            app:layout_anchor="@id/bottom_app_bar_menu" />
+            app:layout_anchor="@id/bottom_app_bar_menu"
+            android:contentDescription="chat" />
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
