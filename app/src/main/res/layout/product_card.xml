@@ -20,8 +20,8 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imagen_producto"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:src="@drawable/google">
 
             </androidx.appcompat.widget.AppCompatImageView>
@@ -37,7 +37,7 @@
             <TextView
                 android:id="@+id/product_description"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:text="description ieieuwbduv llwdwkcckewbiehdv"
                 android:textAppearance="?attr/textAppearanceBody2" />
         </LinearLayout>
