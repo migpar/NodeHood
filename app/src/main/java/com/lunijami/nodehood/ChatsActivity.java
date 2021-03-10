@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class ChatsActivity extends AppCompatActivity {
     ArrayList<String> listDatos;
     RecyclerView recycler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +28,8 @@ public class ChatsActivity extends AppCompatActivity {
         recycler = findViewById(R.id.recicler_mis_chats);
         recycler.setLayoutManager(new LinearLayoutManager(this));
         listDatos = new ArrayList<String>();
-        for (int i = 0 ; i<50;i++){
-            listDatos.add("Dato: "+i+" ");
+        for (int i = 0; i < 50; i++) {
+            listDatos.add("Dato: " + i + " ");
         }
         RecyclerView.LayoutManager gestorChats = new LinearLayoutManager(this);
         MiAdaptadorChats adaptadorChats = new MiAdaptadorChats(listDatos);
@@ -52,7 +53,7 @@ public class ChatsActivity extends AppCompatActivity {
         bottomAppBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ChatsActivity.this, "Menu clicked!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChatsActivity.this, "You are already here", Toast.LENGTH_SHORT).show();
 //                sheetBehavior = BottomSheetBehavior.from(sheet);
             }
 
@@ -65,16 +66,21 @@ public class ChatsActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.bottom_app_bar_menu_profile:
-                        Toast.makeText(ChatsActivity.this, "Like clicked.", Toast.LENGTH_SHORT).show();
+                        Intent intentUser = new Intent(ChatsActivity
+                                .this, UserActivity.class);
+                        intentUser.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intentUser.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intentUser);
                         break;
                     case R.id.bottom_app_bar_menu_search:
                         Toast.makeText(ChatsActivity.this, "Search clicked.", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.bottom_app_bar_menu_share:
-                        Toast.makeText(ChatsActivity.this, "Share clicked.", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.chat:
-                        Toast.makeText(ChatsActivity.this, "YOU ARE ALREADY HERE", Toast.LENGTH_SHORT).show();
+                        Intent intentMain = new Intent(ChatsActivity
+                                .this, MainActivity.class);
+                        intentMain.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intentMain.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intentMain);
                         break;
                 }
                 return false;

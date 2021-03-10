@@ -1,34 +1,44 @@
 package com.lunijami.nodehood;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.Toolbar;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.google.android.material.bottomappbar.BottomAppBar;
 
 public class UserActivity extends AppCompatActivity {
-    protected ImageView perfil;
+
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
+    private Switch tema;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
-        //Usuario Imagen
-        perfil = (ImageView) findViewById(R.id.imageUsuario);
+        tema = findViewById(R.id.switch1);
 
-        Glide.with(this)
-                .load(R.drawable.luis).centerCrop()
-                .transition(DrawableTransitionOptions.withCrossFade(500))
-                .circleCrop().into(perfil);
+
+        tema.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(tema.isChecked()){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                } else{
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                }
+            }
+        });
 
         // cast al xml
         BottomAppBar bottomAppBar = findViewById(R.id.bottom_app_bar_menu);

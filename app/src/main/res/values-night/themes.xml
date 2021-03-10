@@ -1,14 +1,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.NodeHood" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.NodeHood.Dark.NoBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/verdeA</item>
         <item name="colorPrimaryVariant">@color/verdeB</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/gris</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/verdeC</item>
         <item name="colorSecondaryVariant">@color/verdeE</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/gris</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.NodeHood.Dark.Bar" parent="Theme.MaterialComponents.DayNight">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/verdeA</item>
+        <item name="colorPrimaryVariant">@color/verdeB</item>
+        <item name="colorOnPrimary">@color/gris</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/verdeC</item>
+        <item name="colorSecondaryVariant">@color/verdeE</item>
+        <item name="colorOnSecondary">@color/gris</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->

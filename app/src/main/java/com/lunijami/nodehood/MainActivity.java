@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Search clicked.", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.bottom_app_bar_menu_share:
-                        Toast.makeText(MainActivity.this, "Share clicked.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "You are alreafy here", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.chat:
                         Intent intentChat = new Intent(MainActivity
