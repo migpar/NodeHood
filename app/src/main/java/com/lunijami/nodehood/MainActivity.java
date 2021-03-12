@@ -70,7 +70,11 @@ public class MainActivity extends AppCompatActivity {
         bottomAppBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Menu clicked!", Toast.LENGTH_SHORT).show();
+                Intent intentChat = new Intent(MainActivity
+                        .this, ChatsActivity.class);
+                intentChat.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intentChat.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intentChat);
 //                sheetBehavior = BottomSheetBehavior.from(sheet);
             }
 
@@ -94,13 +98,6 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.bottom_app_bar_menu_share:
                         Toast.makeText(MainActivity.this, "You are alreafy here", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.chat:
-                        Intent intentChat = new Intent(MainActivity
-                                .this, ChatsActivity.class);
-                        intentChat.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        intentChat.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(intentChat);
                         break;
                 }
                 return false;

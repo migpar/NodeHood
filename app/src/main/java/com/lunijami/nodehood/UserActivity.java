@@ -11,15 +11,19 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.google.android.material.bottomappbar.BottomAppBar;
 
 public class UserActivity extends AppCompatActivity {
 
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     private Switch tema;
+    ImageView perfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,13 @@ public class UserActivity extends AppCompatActivity {
 
         tema = findViewById(R.id.switch1);
 
+        //Usuario Imagen
+        perfil = (ImageView) findViewById(R.id.imageUsuario);
+
+        Glide.with(this)
+                .load(R.drawable.luis).centerCrop()
+                .transition(DrawableTransitionOptions.withCrossFade(500))
+                .circleCrop().into(perfil);
 
         tema.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +58,11 @@ public class UserActivity extends AppCompatActivity {
         findViewById(R.id.chat).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(UserActivity.this, "CHAT Clicked.", Toast.LENGTH_SHORT).show();
+                Intent intentChat = new Intent(UserActivity
+                        .this, ChatsActivity.class);
+                intentChat.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intentChat.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intentChat);
             }
         });
 
@@ -74,14 +89,11 @@ public class UserActivity extends AppCompatActivity {
                         Toast.makeText(UserActivity.this, "Search clicked.", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.bottom_app_bar_menu_share:
-                        Toast.makeText(UserActivity.this, "Share clicked.", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.chat:
-                        Intent intentChat = new Intent(UserActivity
-                                .this, ChatsActivity.class);
-                        intentChat.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        intentChat.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(intentChat);
+                        Intent intentMain = new Intent(UserActivity
+                                .this, MainActivity.class);
+                        intentMain.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intentMain.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intentMain);
                         break;
                 }
                 return false;
