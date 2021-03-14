@@ -8,7 +8,7 @@
         <!-- el hint cuando el campo está vacio y sin foco-->
         <item name="android:textColorHint">@color/black</item>
         <!-- el hint cuando se convierte en etiqueta flotante-->
-        <item name="hintTextColor">@color/white</item>
+        <item name="hintTextColor">@color/verdeA</item>
     </style>
 
     <style name="AppTheme.EditTextError" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">

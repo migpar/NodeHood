@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/guideline2"
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imagenperfil"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:src="@drawable/profile" />
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10sp"
+            android:layout_marginEnd="10sp"
+            android:layout_toEndOf="@id/imagenperfil"
+            android:fontFamily="@font/poppins"
+            android:text="Username"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/username"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/imagenperfil"
+            android:fontFamily="@font/poppins"
+            android:text="LightBulls"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/descipcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/imagenperfil"
+            android:fontFamily="@font/poppins"
+            android:text="I'm looking for someone to help me to change
+lightbulbs"
+            android:textSize="12sp" />
+        <Button
+            android:id="@+id/botonayudar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/descipcion"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/imagenperfil"
+            android:fontFamily="@font/poppins"
+            android:text="HELP"/>
+
+
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.92" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

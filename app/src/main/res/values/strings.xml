@@ -73,4 +73,7 @@
     <string name="nodehood">NodeHood</string>
     <string name="login">Login</string>
     <string name="imagen">imagen</string>
+    <string name="username">Username</string>
+    <string name="termsconditions"> Accept Terms and Conditions</string>
+    <string name="descripcion">I´m very well programmer, I can fix anything  technological change mobile screens</string>
 </resources>
