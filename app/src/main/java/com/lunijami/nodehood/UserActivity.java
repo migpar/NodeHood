@@ -1,11 +1,15 @@
 package com.lunijami.nodehood;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintSet;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -13,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -23,6 +28,7 @@ public class UserActivity extends AppCompatActivity {
 
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     private Switch tema;
+    private TextView terminos;
     ImageView perfil;
 
     @Override
@@ -31,6 +37,14 @@ public class UserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user);
 
         tema = findViewById(R.id.switch1);
+        terminos = findViewById(R.id.textTerminos);
+
+        terminos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showAlertDialogButtonClicked(UserActivity.this);
+            }
+        });
 
         //Usuario Imagen
         perfil = (ImageView) findViewById(R.id.imageUsuario);
@@ -43,9 +57,9 @@ public class UserActivity extends AppCompatActivity {
         tema.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tema.isChecked()){
+                if (tema.isChecked()) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                } else{
+                } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 }
             }
@@ -99,5 +113,30 @@ public class UserActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    public void showAlertDialogButtonClicked(UserActivity view) {
+
+        // setup the alert builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+
+        //el dialogo estandar tiene título/icono pero podemos sustituirlo por un XML a medida
+//        builder.setTitle("Achtung!");
+//        builder.setMessage("Where do you go?");
+//        builder.setIcon(R.drawable.ic_action_name_dark);
+
+
+        // un XML a medida para el diálogo
+        LinearLayoutManager layout_terminos = new LinearLayoutManager(builder.getContext(), LinearLayoutManager.VERTICAL, false);
+        builder.setView(getLayoutInflater().inflate(R.layout.terminosdialog_view, null));
+        TextView terms = findViewById(R.id.profession);
+
+
+
+        // create and show the alert dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
     }
 }
