@@ -1,50 +1,59 @@
 package com.lunijami.nodehood;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.lunijami.nodehood.modelo.entidades.Usuario;
+
 import java.util.ArrayList;
 
 public class MiAdaptadorChats  extends RecyclerView.Adapter<MiAdaptadorChats.ViewHolderDatos>{
-    ArrayList<String> listDatos;
+    ArrayList<Usuario> listChats;
 
-    public MiAdaptadorChats(ArrayList<String> listDatos) {
-        this.listDatos = listDatos;
+    public MiAdaptadorChats(ArrayList<Usuario> listChats) {
+        this.listChats = listChats;
     }
 
     @NonNull
     @Override
     public MiAdaptadorChats.ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,null,false);
-        return new ViewHolderDatos(view);
+        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_card, parent, false);
+        TextView dato = vista.findViewById(R.id.user_name);
+        ImageView imagen = vista.findViewById(R.id.imagen_usuario);
+        ViewHolderDatos contenedor = new ViewHolderDatos(vista);
+        Log.d("Contenedor", "Creando contenedor de vistas: ");
+        return contenedor;
     }
 
     @Override
     public void onBindViewHolder(@NonNull MiAdaptadorChats.ViewHolderDatos holder, int position) {
-        holder.asignarDatos(listDatos.get(position));
+        Usuario user = listChats.get(position);
+        holder.dato.setText(user.getNombre());
+        holder.imagen.setImageDrawable(user.getFoto());
     }
 
     @Override
     public int getItemCount() {
-        return listDatos.size();
+        return listChats.size();
     }
 
-    public class ViewHolderDatos extends RecyclerView.ViewHolder {
+    public static class ViewHolderDatos extends RecyclerView.ViewHolder {
         TextView dato;
+        ImageView imagen;
 
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
-            dato = (TextView) itemView.findViewById(R.id.idDato);
+            dato = (TextView) itemView.findViewById(R.id.user_name);
+            imagen = (ImageView) itemView.findViewById(R.id.imagen_usuario);
         }
 
-        public void asignarDatos(String datos) {
-            dato.setText(datos);
-        }
     }
 }

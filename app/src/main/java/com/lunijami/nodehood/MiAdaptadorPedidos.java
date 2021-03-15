@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 public class MiAdaptadorPedidos extends RecyclerView.Adapter<MiAdaptadorPedidos.MiContenedorDeVistas> {
 
-    private ArrayList<Pedido> lista_pedidos = new ArrayList<>();
+    private ArrayList<Pedido> lista_pedidos;
 
     public MiAdaptadorPedidos(ArrayList<Pedido> lista_contactos) {
         this.lista_pedidos = lista_contactos;

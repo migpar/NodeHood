@@ -12,11 +12,12 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
+import com.lunijami.nodehood.modelo.entidades.Usuario;
 
 import java.util.ArrayList;
 
 public class ChatsActivity extends AppCompatActivity {
-    ArrayList<String> listDatos;
+    ArrayList<Usuario> listDatos;
     RecyclerView recycler;
 
     @Override
@@ -27,9 +28,11 @@ public class ChatsActivity extends AppCompatActivity {
         LinearLayoutManager layout_mischats = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recycler = findViewById(R.id.recicler_mis_chats);
         recycler.setLayoutManager(new LinearLayoutManager(this));
-        listDatos = new ArrayList<String>();
+        listDatos = new ArrayList<Usuario>();
         for (int i = 0; i < 50; i++) {
-            listDatos.add("Dato: " + i + " ");
+            Usuario u = new Usuario("Usuario"+i,"usuariomail"+i+"@gmail.com","123456");
+            u.setFoto(getDrawable(R.drawable.luis));
+            listDatos.add(u);
         }
         RecyclerView.LayoutManager gestorChats = new LinearLayoutManager(this);
         MiAdaptadorChats adaptadorChats = new MiAdaptadorChats(listDatos);

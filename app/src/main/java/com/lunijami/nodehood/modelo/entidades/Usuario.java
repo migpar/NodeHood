@@ -1,5 +1,7 @@
 package com.lunijami.nodehood.modelo.entidades;
 
+import android.graphics.drawable.Drawable;
+
 import java.util.List;
 
 /**
@@ -10,6 +12,7 @@ public class Usuario {
 
     private String nombre, email, telefono, contraseña;
     List<Integer> listaPedidosID; //Le introducimos solo el id de los pedidos
+    private Drawable foto;
 
     public Usuario(String nombre, String email, String contraseña) {
         this.nombre = nombre;
@@ -18,8 +21,17 @@ public class Usuario {
         this.telefono="no number";
     }
 
+
     public Usuario() {
         super();
+    }
+
+    public Drawable getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Drawable foto) {
+        this.foto = foto;
     }
 
     public String getNombre() {
