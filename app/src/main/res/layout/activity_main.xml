@@ -6,29 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <View
-        android:id="@+id/view2"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:background="@drawable/scrim_title" />
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="270dp"
-        android:layout_height="102dp"
-        android:layout_marginLeft="65dp"
-        android:layout_marginTop="0dp"
-        android:fontFamily="@font/pottaone"
-        android:text="NodeHood"
-        android:textAlignment="center"
-        android:textColor="@color/verdeA"
-        android:textSize="50sp"
-        app:layout_anchor="@+id/view2"
-        app:layout_anchorGravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
@@ -77,6 +54,28 @@
         android:src="@drawable/chat"
         app:layout_anchor="@id/bottom_app_bar_menu" />
 
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@drawable/scrim_title" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="270dp"
+        android:layout_height="102dp"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="0dp"
+        android:fontFamily="@font/pottaone"
+        android:text="NodeHood"
+        android:textAlignment="center"
+        android:textColor="@color/verdeA"
+        android:textSize="50sp"
+        app:layout_anchor="@+id/view2"
+        app:layout_anchorGravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

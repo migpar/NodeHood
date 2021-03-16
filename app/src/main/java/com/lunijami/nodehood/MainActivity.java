@@ -20,6 +20,13 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     RecyclerView mis_pedidos;
     RecyclerView mis_realizados;
+    private String lore = "Lorem ipsum dolor sit amet consectetur adipiscing elit viverra, odio ornare pulvinar ultrices " +
+            "nisi fames non habitant, proin molestie mauris rutrum sociosqu ut urna. Tristique viverra ac sollicitudin " +
+            "primis mauris volutpat nulla, convallis molestie lectus magnis mattis nascetur feugiat sem, ut suspendisse integer" +
+            " malesuada duis risus. Ligula turpis condimentum eros cursus nec nibh commodo vivamus venenatis curae nisi habitasse," +
+            " quis phasellus fames sodales in habitant ac" +
+            " aliquet tincidunt ridiculus tortor quisque donec" +
+            ", mollis faucibus nullam morbi etiam integer mi elementum vestibulum leo cubilia.";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +36,18 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager layout_mispedidos = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mis_pedidos = findViewById(R.id.recicler_mis_pedidos);
         ArrayList<Pedido> listaPedidos = new ArrayList<Pedido>();
-        for(int i=0; i <= 10; i++){
-            @SuppressLint("UseCompatLoadingForDrawables") Pedido p = new Pedido("titulo "+i, "descripcion " + i, getDrawable(R.drawable.apple));
+        int cont = 1;
+        for(int i=0; i <= 30; i++){
+            @SuppressLint("UseCompatLoadingForDrawables") Pedido p;
+            if(cont == 1){
+                p = new Pedido("titulo "+i, lore, getDrawable(R.drawable.madrid));
+            } else if(cont == 2){
+                p = new Pedido("titulo "+i, lore, getDrawable(R.drawable.calle3));
+            }else{
+                p = new Pedido("titulo "+i, lore, getDrawable(R.drawable.calle2));
+                cont =0;
+            }
+            cont++;
             listaPedidos.add(p);
         }
         RecyclerView.LayoutManager gestorPedidos = new LinearLayoutManager(this);

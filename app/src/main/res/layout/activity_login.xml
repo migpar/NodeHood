@@ -171,7 +171,7 @@
             android:hint="@string/password"
             app:passwordToggleEnabled="true"
             style="@style/AppTheme.EditTextError"
-            app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintEnd_toStartOf="@id/guideline2"
             app:layout_constraintStart_toStartOf="@id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/text_input_layout_email">
 
@@ -179,7 +179,6 @@
                 android:id="@+id/editTextPassword"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
-
                 android:background="@drawable/bordes_redondos"
                 android:inputType="textPassword" />
 

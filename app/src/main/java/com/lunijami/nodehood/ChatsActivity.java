@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
@@ -29,9 +30,17 @@ public class ChatsActivity extends AppCompatActivity {
         recycler = findViewById(R.id.recicler_mis_chats);
         recycler.setLayoutManager(new LinearLayoutManager(this));
         listDatos = new ArrayList<Usuario>();
+        boolean foto = true;
         for (int i = 0; i < 50; i++) {
             Usuario u = new Usuario("Usuario"+i,"usuariomail"+i+"@gmail.com","123456");
-            u.setFoto(getDrawable(R.drawable.luis));
+            if(foto){
+                u.setFoto(getDrawable(R.drawable.luis));
+                foto=false;
+            }else {
+                u.setFoto(getDrawable(R.drawable.cara));
+                foto=true;
+            }
+
             listDatos.add(u);
         }
         RecyclerView.LayoutManager gestorChats = new LinearLayoutManager(this);

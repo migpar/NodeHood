@@ -15,6 +15,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -29,7 +30,7 @@ public class UserActivity extends AppCompatActivity {
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     private Switch tema;
     private TextView terminos;
-    ImageView perfil;
+    private ImageView perfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

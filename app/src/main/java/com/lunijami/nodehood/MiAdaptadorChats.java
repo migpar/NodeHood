@@ -38,6 +38,7 @@ public class MiAdaptadorChats  extends RecyclerView.Adapter<MiAdaptadorChats.Vie
         Usuario user = listChats.get(position);
         holder.dato.setText(user.getNombre());
         holder.imagen.setImageDrawable(user.getFoto());
+
     }
 
     @Override
