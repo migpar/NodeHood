@@ -22,7 +22,7 @@
                 android:id="@+id/imagen_usuario"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/google">
+                android:src="@drawable/luis">
 
             </androidx.appcompat.widget.AppCompatImageView>
 
